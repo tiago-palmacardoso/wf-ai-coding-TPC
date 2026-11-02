@@ -1,80 +1,55 @@
-# Projektname
-
-> **SPEC.md – Ihr Projektsteckbrief.** Diese Datei beschreibt, *was* Ihre App können soll.
-> Sie wächst über alle vier Kurstage und ist Ihr wichtigster Kontext für die KI.
-> Ersetzen Sie die Platzhalter in *kursiv*. Ein Beispiel finden Sie ganz unten.
+# Lernkarten-App
 
 ## Idee
-*Was macht die App – in einem Satz?*
+Eine App, mit der ich Lernkarten für Prüfungen erstellen und abfragen kann.
 
 ## Für wen
-*Wer nutzt die App? In welcher Situation?*
+Für mich und meine Mitstudierenden, beim Lernen zu Hause oder unterwegs.
 
 ## User Stories
-*Format: Als … möchte ich …, damit …*
-
-- Als *…* möchte ich *…*, damit *…*.
-- Als *…* möchte ich *…*, damit *…*.
-- Als *…* möchte ich *…*, damit *…*.
+- Als Nutzer:in möchte ich Lernkarten mit Frage und Antwort erfassen, damit ich meinen Stoff sammeln kann.
+- Als Nutzer:in möchte ich die Karten in zufälliger Reihenfolge durchgehen, damit ich nicht nur die Reihenfolge auswendig lerne.
+- Als Nutzer:in möchte ich eine Karte als «gewusst» oder «noch nicht gewusst» markieren, damit ich sehe, was ich wiederholen muss.
+- Als Nutzer:in möchte ich den aktuellen Fortschritt sehen (z. B. 7 von 10 gewusst), damit ich meinen Lernstand einschätzen kann.
+- Als Nutzer:in möchte ich meine Karten behalten, wenn ich die Seite neu lade, damit ich nicht alles neu eingeben muss.
 
 ## Datenmodell
-*Welche Dinge (Objekte) gibt es, und welche Eigenschaften mit welchem Typ haben sie?*
-
-```
-// Objekt: … · Zweck: …
+// Objekt: Lernkarte · Zweck: Lernen mit Frage und Antwort
 {
-  eigenschaft: "Text",
-  anzahl: 0,
-  erledigt: false
+  frage: "Was ist die Hauptstadt der Schweiz?",
+  antwort: "Bern",
+  gewusst: false
 }
-```
 
 ## Datenkarte
 | Frage | Meine App |
 | --- | --- |
-| Welche Daten gibt es? | |
-| Welche Eingaben braucht es? | |
-| Welche Entscheidungen werden getroffen? | |
-| Was wird wiederholt? | |
-| Was ist der Zustand? | |
-| Welche Ausgabe entsteht? | |
+| Welche Daten gibt es? | Lernkarten mit frage, antwort, gewusst |
+| Welche Eingaben braucht es? | Frage und Antwort beim Erfassen; Klick auf «gewusst» / «nicht gewusst» |
+| Welche Entscheidungen werden getroffen? | Ist die Antwort richtig? Wurde «gewusst» geklickt? Gibt es noch Karten? |
+| Was wird wiederholt? | Durchgehen aller Karten; Zufallsreihenfolge |
+| Was ist der Zustand? | Liste der Karten, aktuelle Karte, Anzahl gewusst |
+| Welche Ausgabe entsteht? | Frage, Antwort, Fortschritt «7 von 10 gewusst» |
 
 ## Offene Fragen
-*Was ist noch unklar? (z. B. Antworten aus dem KI-Sparring an Tag 1)*
+1. Wo werden die Karten gespeichert, wenn die Seite neu geladen wird?
+   Antwort: Im Browser-Speicher (localStorage) als JSON. Keine Datenbank, kein Server.
 
-- …
+2. Wie wechselt man zwischen den Karten?
+   Antwort: Ein «Weiter»-Button zeigt die nächste Karte. Die Antwort erscheint erst nach Klick auf «Antwort zeigen». Am Ende: «Durchgang beendet» + «Neu starten».
+
+3. Sollen Karten bearbeitet oder gelöscht werden können?
+   Antwort: Löschen ja, mit Bestätigung. Bearbeiten kommt später, nicht in v0.
+
+4. Was passiert, wenn keine Karten vorhanden sind?
+   Antwort: Hinweis «Noch keine Karten – erste Karte erfassen» + Button «Neue Karte». Keine leere Seite.
+
+5. Wie wird «gewusst» gezählt?
+   Antwort: Anzahl «gewusst» / Gesamtzahl, angezeigt als «7 von 10 gewusst». Eine Karte zählt einmal pro Durchgang.
 
 ## Nicht im Umfang
-*Was die App bewusst NICHT kann – hilft gegen ausufernde KI-Vorschläge.*
-
-- …
-
----
-
-<details>
-<summary>Beispiel: SPEC.md v0 «Giess-Planer»</summary>
-
-```
-# Giess-Planer
-
-## Idee
-Erinnert mich, wann welche Zimmerpflanze Wasser braucht.
-
-## Für wen
-Mich und meine WG
-
-## User Stories
-- Als Nutzer:in möchte ich Pflanzen erfassen, damit ich den Überblick habe.
-- Als Nutzer:in möchte ich sehen, welche Pflanze heute Wasser braucht.
-- Als Nutzer:in möchte ich eine Pflanze als gegossen markieren,
-  damit der nächste Termin neu berechnet wird.
-
-## Datenmodell
-// Objekt: Pflanze · Zweck: Giess-Erinnerung
-{
-  name: "Monstera",
-  intervall_tage: 7,
-  zuletzt_gegossen: "2026-11-01"
-}
-```
-</details>
+- Keine Benutzerkonten oder Anmeldung.
+- Keine Cloud-Synchronisation.
+- Keine Bilder oder Audiodateien.
+- Keine Kategorien in v0.
+- Keine Auswertung über mehrere Lern-Sessions.
