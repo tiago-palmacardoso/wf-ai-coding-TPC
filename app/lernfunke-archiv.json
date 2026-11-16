@@ -1,0 +1,21 @@
+{
+  "format": "lernfunke-archiv",
+  "version": 1,
+  "exportiertAm": "2026-11-16T20:14:08.056Z",
+  "serien": [
+    {
+      "id": "test-existing",
+      "name": "Vorhanden",
+      "karten": [
+        {
+          "id": "test-card",
+          "frage": "Frage",
+          "antwort": "Antwort",
+          "definition": "",
+          "bild": "",
+          "gewusst": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lernfunke - Lernkarten-App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="kopfleiste">
+    <img class="app-symbol" src="IconApp.svg" alt="">
+
+    <h1>Lernfunke</h1>
+
+    <nav class="kopf-aktionen" aria-label="Benutzermenü">
+      <button class="symbol-knopf profil-knopf" type="button" aria-label="Profil">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="8" r="3.5"></circle>
+          <path d="M5.5 20c.5-3.5 2.8-5.5 6.5-5.5s6 2 6.5 5.5"></path>
+        </svg>
+      </button>
+      <button class="symbol-knopf" type="button" aria-label="Einstellungen">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"></path>
+          <path d="m19.4 15 .1.1a1.7 1.7 0 0 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 0 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 1 1-2.4-2.4l.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 0 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 1 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V2a1.7 1.7 0 0 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 1 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 0 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2 2.9Z"></path>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <div class="seitenlayout">
+    <aside class="seitenleiste">
+      <button
+        class="seitenleiste-schalter"
+        id="seitenleiste-schalter"
+        type="button"
+        aria-label="Menü einklappen"
+        aria-expanded="true"
+        aria-controls="seiten-navigation">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="m15 18-6-6 6-6"></path>
+        </svg>
+        <span class="seitenleiste-label">Menü</span>
+      </button>
+
+      <nav class="seiten-navigation" id="seiten-navigation" aria-label="Hauptnavigation">
+        <button class="seiten-eintrag aktiv" id="navigation-serien-knopf" type="button" aria-label="Meine Serien" title="Meine Serien">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <rect x="5" y="4" width="14" height="16" rx="2"></rect>
+            <path d="M8 8h8M8 12h8M8 16h5"></path>
+          </svg>
+          <span class="seitenleiste-label">Meine Serien</span>
+        </button>
+        <button class="seiten-eintrag" id="navigation-lernen-knopf" type="button" aria-label="Lernen" title="Lernen">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M3 5.5c3.5-.8 6.5-.2 9 1.5v13c-2.5-1.7-5.5-2.3-9-1.5z"></path>
+            <path d="M21 5.5c-3.5-.8-6.5-.2-9 1.5v13c2.5-1.7 5.5-2.3 9-1.5z"></path>
+          </svg>
+          <span class="seitenleiste-label">Lernen</span>
+        </button>
+        <button class="seiten-eintrag" type="button" aria-label="Spiele" title="Spiele">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M7 8h10a4 4 0 0 1 3.8 5.2l-1 3a2 2 0 0 1-3.2 1l-2.1-1.6h-5l-2.1 1.6a2 2 0 0 1-3.2-1l-1-3A4 4 0 0 1 7 8Z"></path>
+            <path d="M8 11v4M6 13h4M16 12h.01M18 14h.01"></path>
+          </svg>
+          <span class="seitenleiste-label">Spiele</span>
+        </button>
+        <button class="seiten-eintrag" type="button" aria-label="Fortschritt" title="Fortschritt">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M4 20V12h4v8M10 20V8h4v12M16 20V4h4v16M3 20h18"></path>
+          </svg>
+          <span class="seitenleiste-label">Fortschritt</span>
+        </button>
+      </nav>
+    </aside>
+
+    <main class="hauptbereich">
+      <section class="serien-bereich" id="serien-bereich" aria-labelledby="serien-titel">
+        <div class="serien-kopf">
+          <div>
+            <h2 id="serien-titel">Meine Serien</h2>
+            <p>Ordne deine Lernkarten nach Sprache und Thema.</p>
+          </div>
+          <div class="serien-kopf-aktionen">
+            <button class="sekundaer-knopf" id="json-archiv-exportieren-knopf" type="button">Archiv herunterladen</button>
+            <button class="sekundaer-knopf" id="json-importieren-knopf" type="button">JSON importieren</button>
+            <input id="json-datei-input" type="file" accept=".json,application/json" hidden>
+            <button class="primaer-knopf" id="neue-serie-knopf" type="button">Neue Serie</button>
+          </div>
+        </div>
+
+        <p class="daten-status" id="json-status" role="status" aria-live="polite"></p>
+        <form class="serien-formular" id="serien-formular" hidden>
+          <h3 id="formular-titel">Neue Serie</h3>
+          <label for="serien-name">Name der Serie</label>
+          <input id="serien-name" name="serien-name" type="text" maxlength="80" required>
+          <p class="fehler-meldung" id="formular-fehler" role="alert" hidden></p>
+          <div class="formular-aktionen">
+            <button class="primaer-knopf" id="speichern-knopf" type="submit">Speichern</button>
+            <button class="sekundaer-knopf" id="abbrechen-knopf" type="button">Abbrechen</button>
+          </div>
+        </form>
+
+        <p class="fehler-meldung" id="serien-fehler" role="alert" hidden></p>
+        <p class="leer-zustand" id="serien-leer">Noch keine Serien. Erstelle deine erste Serie.</p>
+        <ul class="serien-liste" id="serien-liste" aria-label="Meine Serien" hidden></ul>
+        <p class="screenreader-text" id="serien-status" aria-live="polite"></p>
+      </section>
+
+      <section class="lernen-bereich" id="lernen-bereich" aria-labelledby="lernen-titel" hidden>
+        <div id="lernen-auswahl">
+          <h2 id="lernen-titel">Lernen</h2>
+          <p>Wähle eine Serie aus, die du lernen möchtest.</p>
+          <label for="lernen-serie">Serie</label>
+          <select id="lernen-serie" name="lernen-serie">
+            <option value="">Bitte wähle eine Serie.</option>
+          </select>
+          <label for="lernen-modus">Lernmodus</label>
+          <select id="lernen-modus" name="lernen-modus">
+            <option value="flashcard">Karteikarte: Frage und Antwort</option>
+            <option value="schreiben">Antwort selbst schreiben</option>
+            <option value="umgekehrt">Umgekehrte Karte: Antwort zuerst</option>
+          </select>
+          <p id="lernen-karten-info" aria-live="polite"></p>
+          <button class="primaer-knopf" id="lernen-starten-knopf" type="button" disabled>Lernen starten</button>
+        </div>
+        <div id="lernen-studium" hidden>
+          <div class="studium-kopf">
+            <div>
+              <h3 id="studium-serie-titel"></h3>
+              <p id="studium-modus-anzeige"></p>
+              <p id="studium-fortschritt"></p>
+            </div>
+            <button class="sekundaer-knopf" id="lernen-beenden-knopf" type="button">Lernen beenden</button>
+          </div>
+
+          <article class="studium-karte" id="studium-karte">
+            <h4 id="studium-frage"></h4>
+            <img class="studium-bild" id="studium-bild" alt="" hidden>
+            <form id="studium-eingabe-formular" hidden>
+              <label for="studium-eingabe">Deine Antwort</label>
+              <textarea id="studium-eingabe" name="studium-eingabe" rows="3" maxlength="500" required></textarea>
+              <button class="primaer-knopf" id="studium-eingabe-pruefen-knopf" type="submit">Antwort prüfen</button>
+            </form>
+            <p class="studium-eigene-antwort" id="studium-eigene-antwort" hidden></p>
+            <div id="studium-antwort-bereich" hidden>
+              <p class="studium-antwort" id="studium-antwort"></p>
+              <p class="karte-definition" id="studium-definition" hidden></p>
+            </div>
+            <button class="primaer-knopf" id="antwort-zeigen-knopf" type="button">Antwort anzeigen</button>
+            <div class="studium-bewertung" id="studium-bewertung" hidden>
+              <button class="sekundaer-knopf" id="karte-nicht-gewusst-knopf" type="button">Noch nicht gewusst</button>
+              <button class="primaer-knopf" id="karte-gewusst-knopf" type="button">Gewusst</button>
+            </div>
+          </article>
+
+          <div id="studium-ergebnis" hidden>
+            <h3>Durchgang abgeschlossen</h3>
+            <p id="studium-ergebnis-text"></p>
+            <div class="studium-bewertung">
+              <button class="primaer-knopf" id="schwierige-wiederholen-knopf" type="button" hidden>Schwierige Karten wiederholen</button>
+              <button class="sekundaer-knopf" id="studium-zurueck-knopf" type="button">Zurück zur Auswahl</button>
+            </div>
+          </div>
+          <p class="fehler-meldung" id="lernen-fehler" role="alert" hidden></p>
+        </div>
+      </section>
+
+      <section class="karten-bereich" id="karten-bereich" aria-labelledby="karten-titel" hidden>
+        <button class="sekundaer-knopf" id="zurueck-zu-serien-knopf" type="button">Meine Serien</button>
+        <h2 id="karten-titel"></h2>
+        <p id="karten-beschreibung"></p>
+
+        <form class="karten-formular" id="karten-formular">
+          <h3 id="karten-formular-titel">Neue Lernkarte</h3>
+          <label for="karten-frage">Begriff oder Frage</label>
+          <input id="karten-frage" name="karten-frage" type="text" maxlength="200" required>
+
+          <label for="karten-antwort">Übersetzung oder Antwort</label>
+          <textarea id="karten-antwort" name="karten-antwort" rows="3" maxlength="500" required></textarea>
+
+          <label for="karten-definition">Definition (optional)</label>
+          <textarea id="karten-definition" name="karten-definition" rows="2" maxlength="500"></textarea>
+
+          <label for="karten-bild">Foto (optional)</label>
+          <input id="karten-bild" name="karten-bild" type="file" accept="image/jpeg,image/png,image/webp">
+          <p class="bild-hinweis">JPG, PNG oder WEBP bis 5 MB. Das Foto wird verkleinert im Browser gespeichert.</p>
+          <div class="bild-vorschau" id="bild-vorschau" hidden>
+            <img id="bild-vorschau-img" alt="Vorschau des ausgewählten Fotos">
+            <button class="sekundaer-knopf" id="bild-entfernen-knopf" type="button">Foto entfernen</button>
+          </div>
+
+          <p class="fehler-meldung" id="karten-fehler" role="alert" hidden></p>
+          <div class="formular-aktionen">
+            <button class="primaer-knopf" id="karte-speichern-knopf" type="submit">Karte hinzufügen</button>
+            <button class="sekundaer-knopf" id="karten-abbrechen-knopf" type="button" hidden>Abbrechen</button>
+          </div>
+        </form>
+
+        <p class="leer-zustand" id="karten-leer">Noch keine Karten in dieser Serie.</p>
+        <ul class="karten-liste" id="karten-liste" aria-label="Lernkarten" hidden></ul>
+        <p class="screenreader-text" id="karten-status" aria-live="polite"></p>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="loesch-dialog" id="loesch-dialog" aria-labelledby="loesch-titel" aria-describedby="loesch-beschreibung">
+    <h2 id="loesch-titel">Serie löschen?</h2>
+    <p id="loesch-beschreibung">Möchtest du diese Serie wirklich löschen?</p>
+    <p class="fehler-meldung" id="loesch-fehler" role="alert" hidden></p>
+    <div class="formular-aktionen">
+      <button class="sekundaer-knopf" id="loesch-abbrechen-knopf" type="button">Abbrechen</button>
+      <button class="loesch-knopf" id="loesch-bestaetigen-knopf" type="button">Weiter</button>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
